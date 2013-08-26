@@ -1,0 +1,23 @@
+{
+    "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+    "font_size": 13,
+
+    "spell_check": true,
+
+    "draw_white_space": "all",
+
+    "highlight_modified_tabs": true,
+
+    "indent_to_bracket": false,
+    "auto_indent": true,
+    "detect_indentation": true,
+    "smart_indent": true,
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+
+    "default_line_ending": "unix",
+
+    "tree_animation_enabled": true,
+    "highlight_modified_tabs": true
+}
