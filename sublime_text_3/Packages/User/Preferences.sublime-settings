@@ -12,11 +12,19 @@
     "auto_indent": true,
     "detect_indentation": true,
     "smart_indent": true,
+
     "tab_size": 4,
     "translate_tabs_to_spaces": true,
     "trim_trailing_white_space_on_save": true,
+    "use_tab_stops": true,
+
+
+    "find_selected_text": true,
+    "auto_find_in_selection": false,
 
     "default_line_ending": "unix",
+
+    "auto_complete_commit_on_tab": true,
 
     "tree_animation_enabled": true,
     "highlight_modified_tabs": true
