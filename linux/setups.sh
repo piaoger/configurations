@@ -1,4 +1,4 @@
-
+# Setups.
 
 cd ~/w
 mkdir Dropbox
