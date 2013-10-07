@@ -331,6 +331,25 @@ function shellExecute(command, args, options, callback) {
     });
 }
 
+
+function curl(options, callback) {
+    // curl -SsL --output filename url
+    var args = [];
+    args.push('-SsL');
+
+    if (options.cacert) {
+        args.push('--cacert');
+        args.push(options.cacert);
+    }
+
+    args.push('--output');
+    args.push(options.output);
+    args.push(options.url);
+
+    console.log('curl: ' + options.url);
+    shellExecute('curl', args, {}, callback || function(){});
+}
+
 /*
 // Download npm from http://nodejs.org/dist/npm/
 // Download node.js from
@@ -369,24 +388,6 @@ var callback = function(err) {
 
 //createTmpFile('xx', callback);
 */
-
-function curl(options, callback) {
-    // curl -SsL --output filename url
-    var args = [];
-    args.push('-SsL');
-
-    if (options.cacert) {
-        args.push('--cacert');
-        args.push(options.cacert);
-    }
-
-    args.push('--output');
-    args.push(options.output);
-    args.push(options.url);
-
-    console.log('curl: ' + options.url);
-    shellExecute('curl', args, {}, callback || function(){});
-}
 
 // Download npm from http://nodejs.org/dist/npm/
 var options = {
@@ -427,32 +428,6 @@ var req = https.get(options, function(res) {
     });
 });
 
-//
-
-function installGnuWin32(name) {
-    function removePause(filepath) {
-        var content = fs.readFileSync(filepath, {encoding : 'utf8'});
-        fs.renameSync(filepath, filepath + '_backup');
-        content = content.replace('pause', ' ');
-        fs.writeFileSync(filepath, content);
-    }
-
-    var dir = path.join(__dirname, name, 'GetGnuWin32');
-    var downloatbat = path.join(dir, 'download.bat');
-    var installbat = path.join(dir, 'install.bat');
-    removePause(downloatbat);
-    removePause(installbat);
-
-    shellExecute(downloatbat, undefined, undefined, function() {
-        shellExecute(installbat, undefined, undefined, function(){
-            var gnnwin32 = path.join(dir, 'gnuwin32');
-            var bindgnuwin32 = __dirname
-            ncp(gnnwin32, bindgnuwin32);
-        });
-    });
-}
-
-
 // gnuwin32
 var getgnuwin32 = {
     url: 'http://sourceforge.net/projects/getgnuwin32/files/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe',
@@ -465,13 +440,36 @@ curl(getgnuwin32, function(){
     shellExecute(sevenzip, ['x', '-o' + extracted, getgnuwin32.output], undefined, function(){
         console.log('remove ' + getgnuwin32.output);
         fs.unlink(getgnuwin32.output, noop);
-        //installGnuWin32(extracted);
+
+        function installGnuWin32(name) {
+            function removePause(filepath) {
+                var content = fs.readFileSync(filepath, {encoding : 'utf8'});
+                fs.renameSync(filepath, filepath + '_backup');
+                content = content.replace(/pause/g, ' ');
+                fs.writeFileSync(filepath, content);
+            }
+
+            var dir = path.join(__dirname, name, 'GetGnuWin32');
+            var downloatbat = path.join(dir, 'download.bat');
+            var installbat = path.join(dir, 'install.bat');
+            removePause(downloatbat);
+            removePause(installbat);
+
+            shellExecute(downloatbat, undefined, undefined, function() {
+                shellExecute(installbat, undefined, undefined, function(){
+                    var gnnwin32 = path.join(dir, 'gnuwin32');
+                    var bindgnuwin32 = __dirname
+                    ncp(gnnwin32, bindgnuwin32);
+                });
+            });
+        }
+
+        installGnuWin32(extracted);
     });
 });
 
 
-//curl -SsL --output PortableGit.7z  https://msysgit.googlecode.com/files/PortableGit-1.8.4-preview20130916.7z
-//"7zip/7z.exe" x -ogit PortableGit.7z
+// msysgit
 var msysgit = {
     url: 'https://msysgit.googlecode.com/files/PortableGit-1.8.4-preview20130916.7z',
     output: 'PortableGit-1.8.4-preview20130916.7z',
@@ -486,4 +484,3 @@ curl(msysgit, function(){
         fs.unlink(msysgit.output, noop);
     });
 });
-
