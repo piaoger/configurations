@@ -35,11 +35,13 @@ export PATH=$PATH:~/w/Dropbox/tools/golang/go_1.1.1/bin
 
 
 
-#sudo apt-get install g++ curl libssl-dev apache2-utils
-
-#git clone git://github.com/skynet/node.git
-#cd node
-#./configure && sudo make && sudo make install
-#cd ..
-#sudo rm -rf node
-#curl http://npmjs.org/install.sh | sh
+yum install curl
+ cd /usr/local/src
+ wget http://nodejs.org/dist/v0.6.16/node-v0.6.16.tar.gz
+ cd ./node-v0.6.16
+ ./configure
+ make
+ make install
+ node -v
+ curl http://npmjs.org/install.sh | sudo sh
+ npm -v

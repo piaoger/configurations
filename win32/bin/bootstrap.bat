@@ -3,19 +3,19 @@ set THIS_FOLDER=%THIS_FOLDER_TAIL:~0,-1%
 
 md node
 
-::wget http://nodejs.org/dist/v0.10.20/x64/node.exe
+::/wget http://nodejs.org/dist/v0.10.20/x64/node.exe
 curl -SsL --output node/node.exe  http://nodejs.org/dist/v0.10.20/x64/node.exe
-"node/node.exe" bootstrap.js
+call "node/node.exe" bootstrap.js
 
-curl -SsL --output GetGnuWin32.exe  sourceforge.net/projects/getgnuwin32/files/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe
+::curl -SsL --output GetGnuWin32.exe  sourceforge.net/projects/getgnuwin32/files/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe
 
-unzip npm.zip -d node
+::unzip npm.zip -d node
 ::cleanup
-del npm.zip
+::del npm.zip
 
 
-"7zip/7z.exe" x -ogetgunwin32 getgnuwin32.exe
-del getgnuwin32.exe
+::"7zip/7z.exe" x -ogetgunwin32 getgnuwin32.exe
+::del getgnuwin32.exe
 
 
 
