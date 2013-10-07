@@ -374,9 +374,16 @@ function curl(options, callback) {
     // curl -SsL --output filename url
     var args = [];
     args.push('-SsL');
+
+    if (options.cacert) {
+        args.push('--cacert');
+        args.push(options.cacert);
+    }
+
     args.push('--output');
     args.push(options.output);
     args.push(options.url);
+
     console.log('curl: ' + options.url);
     shellExecute('curl', args, {}, callback || function(){});
 }
@@ -420,7 +427,7 @@ var req = https.get(options, function(res) {
     });
 });
 
-
+//
 
 function installGnuWin32(name) {
     function removePause(filepath) {
@@ -445,6 +452,8 @@ function installGnuWin32(name) {
     });
 }
 
+
+// gnuwin32
 var getgnuwin32 = {
     url: 'http://sourceforge.net/projects/getgnuwin32/files/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe',
     output: 'GetGnuWin32-0.6.3.exe'
@@ -456,8 +465,25 @@ curl(getgnuwin32, function(){
     shellExecute(sevenzip, ['x', '-o' + extracted, getgnuwin32.output], undefined, function(){
         console.log('remove ' + getgnuwin32.output);
         fs.unlink(getgnuwin32.output, noop);
-        installGnuWin32(extracted);
+        //installGnuWin32(extracted);
     });
 });
 
+
+//curl -SsL --output PortableGit.7z  https://msysgit.googlecode.com/files/PortableGit-1.8.4-preview20130916.7z
+//"7zip/7z.exe" x -ogit PortableGit.7z
+var msysgit = {
+    url: 'https://msysgit.googlecode.com/files/PortableGit-1.8.4-preview20130916.7z',
+    output: 'PortableGit-1.8.4-preview20130916.7z',
+    cacert: 'cacert.pem'
+}
+curl(msysgit, function(){
+    // "7zip/7z.exe" x -ogetgunwin32 getgnuwin32.exe
+    var sevenzip = path.join(__dirname , '7zip', '7z.exe');
+    var extracted = 'git';
+    shellExecute(sevenzip, ['x', '-o' + extracted, msysgit.output], undefined, function(){
+        console.log('remove ' + msysgit.output);
+        fs.unlink(msysgit.output, noop);
+    });
+});
 
