@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>complexRoundSquare(${1:size},rads1=[${2:0},${3:0}], rads2=[${4:0},${5:0}], rads3=[${6:0},${7:0}], rads4=[${8:0},${9:0}], center=${10:true});</string>
+	<key>name</key>
+	<string>2D Complex Round Square</string>
+	<key>scope</key>
+	<string>source.scad</string>
+	<key>tabTrigger</key>
+	<string>complexroundsqaure</string>
+	<key>uuid</key>
+	<string>0DC79ABF-3451-44C9-A3D9-230416E43F12</string>
+</dict>
+</plist>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>pinpeg(h=${1:shaft_height}, r=${2:shaft_radius}, lh=${3:lip_height}, lt=${4:lip_thickness});</string>
+	<key>name</key>
+	<string>Pin Peg</string>
+	<key>scope</key>
+	<string>source.scad</string>
+	<key>tabTrigger</key>
+	<string>pinpeg</string>
+	<key>uuid</key>
+	<string>0DC79ABF-3451-44C9-A3D9-230416E43F12</string>
+</dict>
+</plist>

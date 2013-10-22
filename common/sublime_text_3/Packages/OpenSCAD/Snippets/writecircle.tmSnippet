@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>writecircle("${1:text}",[${2:0},${3:0},${4:0}],${5:radius});</string>
+	<key>name</key>
+	<string>Write Circle</string>
+	<key>scope</key>
+	<string>source.scad</string>
+	<key>tabTrigger</key>
+	<string>writecircle</string>
+	<key>uuid</key>
+	<string>0DC79ABF-3451-44C9-A3D9-230416E43F12</string>
+</dict>
+</plist>

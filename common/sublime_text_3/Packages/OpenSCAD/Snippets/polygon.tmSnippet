@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>polygon(points=[${1:[0,0],[100,0],[0,100],[10,10],[80,10],[10,80]}], paths=[${2:[0,1,2],[3,4,5]}]);
+</string>
+	<key>name</key>
+	<string>polygon</string>
+	<key>scope</key>
+	<string>source.scad</string>
+	<key>tabTrigger</key>
+	<string>polyg</string>
+	<key>uuid</key>
+	<string>DFDB8C74-B3DF-4178-B060-BC6C7B0E2815</string>
+</dict>
+</plist>

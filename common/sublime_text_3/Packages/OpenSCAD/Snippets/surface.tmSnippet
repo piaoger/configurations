@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>surface(file="${1:filename.dat}", center=${2:true}${0:, convexity=5});
+</string>
+	<key>name</key>
+	<string>surface</string>
+	<key>scope</key>
+	<string>source.scad</string>
+	<key>tabTrigger</key>
+	<string>surf</string>
+	<key>uuid</key>
+	<string>C02A06D3-0EFD-400A-9BD4-7F9C48796479</string>
+</dict>
+</plist>

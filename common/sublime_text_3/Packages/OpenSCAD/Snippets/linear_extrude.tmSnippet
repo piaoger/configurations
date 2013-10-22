@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>linear_extrude(height=${1:10}, center=${2:true}, convexity=${3:10}, twist=${4:0}) {
+	${0}
+}</string>
+	<key>name</key>
+	<string>linear_extrude</string>
+	<key>scope</key>
+	<string>source.scad</string>
+	<key>tabTrigger</key>
+	<string>le</string>
+	<key>uuid</key>
+	<string>27811656-B6EC-4B1F-8774-9A1656D2226E</string>
+</dict>
+</plist>

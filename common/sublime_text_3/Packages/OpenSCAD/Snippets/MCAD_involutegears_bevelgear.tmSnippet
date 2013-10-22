@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>bevel_gear (number_of_teeth=${1:0}, cone_distance=${2:0}, face_width=${3:0}, outside_circular_pitch=${4:0}, pressure_angle=${5:0}, clearance = ${6:0}, bore_diameter=${7:0}, gear_thickness = ${8:0}, backlash = ${9:0}, involute_facets=${10:0}, finish = ${11:0});</string>
+	<key>name</key>
+	<string>Bevel Gear</string>
+	<key>scope</key>
+	<string>source.scad</string>
+	<key>tabTrigger</key>
+	<string>bevelgear</string>
+	<key>uuid</key>
+	<string>0DC79ABF-3451-44C9-A3D9-230416E43F12</string>
+</dict>
+</plist>
