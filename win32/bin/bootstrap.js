@@ -1,5 +1,11 @@
 
 
+// see appcelerator node-appc
+// https://github.com/appcelerator/node-appc/blob/master/lib/ast.js
+
+
+
+
 function ncp (source, dest, options, callback) {
   if (!callback) {
     callback = options;
@@ -333,9 +339,34 @@ function shellExecute(command, args, options, callback) {
 
 
 function curl(options, callback) {
+
+
+   // curl -SsL --output filename url
+    var args = [];
+    //args.push('-SsL');
+
+    if (options.cacert) {
+        args.push('--certificate-type=pem');
+        args.push('--ca-certificate=' + options.cacert);
+
+    } else {
+        args.push('--no-check-certificate');
+    }
+
+    args.push('-O');
+    args.push(options.output);
+
+    args.push(options.url);
+
+    console.log('wget: ' + JSON.stringify(args));
+    shellExecute('wget', args, {}, callback || function(){});
+
+}
+
+function curlo(options, callback) {
     // curl -SsL --output filename url
     var args = [];
-    args.push('-SsL');
+    //args.push('-SsL');
 
     if (options.cacert) {
         args.push('--cacert');
@@ -344,11 +375,21 @@ function curl(options, callback) {
 
     args.push('--output');
     args.push(options.output);
+
     args.push(options.url);
 
-    console.log('curl: ' + options.url);
+    console.log('curl: ' + JSON.stringify(args));
     shellExecute('curl', args, {}, callback || function(){});
 }
+
+
+var cacertpem = {
+    url: 'http://curl.haxx.se/ca/cacert.pem',
+    output: 'cacert.pem'
+};
+curl(cacertpem, function(){
+});
+
 
 /*
 // Download npm from http://nodejs.org/dist/npm/
@@ -418,9 +459,9 @@ var req = https.get(options, function(res) {
         curl(npmzip, function(){
             var sevenzip = path.join(__dirname , '7zip', '7z.exe');
             var extracted = 'node';
-            shellExecute(sevenzip, ['x', '-o' + extracted, filename], undefined, function(){
-                fs.unlink(filename, noop);
-            });
+           // shellExecute(sevenzip, ['x', '-o' + extracted, filename], undefined, function(){
+           //     fs.unlink(filename, noop);
+           // });
         });
     });
     res.on('error', function(data) {
@@ -429,8 +470,9 @@ var req = https.get(options, function(res) {
 });
 
 // gnuwin32
+// https://sourceforge.net/projects/getgnuwin32/files/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe
 var getgnuwin32 = {
-    url: 'http://sourceforge.net/projects/getgnuwin32/files/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe',
+    url: 'http://www.mirrorservice.org/sites/downloads.sourceforge.net/g/ge/getgnuwin32/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe',
     output: 'GetGnuWin32-0.6.3.exe'
 }
 curl(getgnuwin32, function(){
@@ -454,7 +496,7 @@ curl(getgnuwin32, function(){
             var installbat = path.join(dir, 'install.bat');
             removePause(downloatbat);
             removePause(installbat);
-
+            /*
             shellExecute(downloatbat, undefined, undefined, function() {
                 shellExecute(installbat, undefined, undefined, function(){
                     var gnnwin32 = path.join(dir, 'gnuwin32');
@@ -462,9 +504,10 @@ curl(getgnuwin32, function(){
                     ncp(gnnwin32, bindgnuwin32);
                 });
             });
+            */
         }
 
-        installGnuWin32(extracted);
+        //installGnuWin32(extracted);
     });
 });
 
@@ -472,8 +515,7 @@ curl(getgnuwin32, function(){
 // msysgit
 var msysgit = {
     url: 'https://msysgit.googlecode.com/files/PortableGit-1.8.4-preview20130916.7z',
-    output: 'PortableGit-1.8.4-preview20130916.7z',
-    cacert: 'cacert.pem'
+    output: 'PortableGit-1.8.4-preview20130916.7z'
 }
 curl(msysgit, function(){
     // "7zip/7z.exe" x -ogetgunwin32 getgnuwin32.exe
