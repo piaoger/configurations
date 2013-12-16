@@ -1,3 +1,6 @@
+// user preferences of Piaoger :)
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by file type specific settings.
 {
     "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
     "font_size": 13,
@@ -5,8 +8,6 @@
     "spell_check": true,
 
     "draw_white_space": "all",
-
-    "highlight_modified_tabs": true,
 
     "indent_to_bracket": false,
     "auto_indent": true,
@@ -18,7 +19,6 @@
     "trim_trailing_white_space_on_save": true,
     "use_tab_stops": true,
 
-
     "find_selected_text": true,
     "auto_find_in_selection": false,
 
@@ -27,5 +27,10 @@
     "auto_complete_commit_on_tab": true,
 
     "tree_animation_enabled": true,
-    "highlight_modified_tabs": true
+    "highlight_modified_tabs": true,
+
+    "enable_hexadecimal_encoding": false,
+
+    // Mac Only
+    "open_files_in_new_window": false
 }
