@@ -32,3 +32,14 @@ cp -r ./go ~/w/Dropbox/tools/golang/go_1.1.1
 export PATH=$PATH:~/w/Dropbox/tools/golang/go_1.1.1/bin
 
 
+### Install Google Chrome
+export GOOGLECHROME_PACKAGE=google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/$GOOGLECHROME_PACKAGE $GOOGLECHROME_PACKAGE
+sudo dpkg -i $GOOGLECHROME_PACKAGE
+sudo apt-get -f install
+
+### Teamviewer
+export TEAMVIEWER_PACKAGE=teamviewer_linux_x64.deb
+wget http://download.teamviewer.com/download/$TEAMVIEWER_PACKAGE $TEAMVIEWER_PACKAGE
+sudo dpkg -i $TEAMVIEWER_PACKAGE
+sudo apt-get -f install
