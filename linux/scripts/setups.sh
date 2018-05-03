@@ -38,8 +38,10 @@ wget https://dl.google.com/linux/direct/$GOOGLECHROME_PACKAGE $GOOGLECHROME_PACK
 sudo dpkg -i $GOOGLECHROME_PACKAGE
 sudo apt-get -f install
 
+
 ### Teamviewer
-export TEAMVIEWER_PACKAGE=teamviewer_linux_x64.deb
-wget http://download.teamviewer.com/download/$TEAMVIEWER_PACKAGE $TEAMVIEWER_PACKAGE
+### https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+export TEAMVIEWER_PACKAGE=teamviewer_amd64.deb
+wget https://download.teamviewer.com/download/linux/$TEAMVIEWER_PACKAGE $TEAMVIEWER_PACKAGE
 sudo dpkg -i $TEAMVIEWER_PACKAGE
 sudo apt-get -f install
